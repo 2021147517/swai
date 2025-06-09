@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="">
+
+  <title> MakeItCount AI </title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+  <style>
+    input, textarea, button {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        color: #333;
+        background-color: #fff
+    }
+
+    .chat-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .chat-messages {
+      height: 400px;
+      overflow-y: auto;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .user-message {
+      background: #e3f2fd;
+      margin-left: 20%;
+    }
+
+    .bot-message {
+      background: #f5f5f5;
+      margin-right: 20%;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input input {
+      flex: 1;
+    }
+
+    .calendar-preview {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      background: #fff;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="hero_area">
+
+    <div class="hero_bg_box">
+      <div class="bg_img_box">
+        <img src="images/hero-bg.png" alt="">
+      </div>
+    </div>
+
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              MakeItCount<sup>AI</sup>
+            </span>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      MakeItCount<sup>AI</sup>
+                    </h1>
+                    <p>
+                      AI 스케줄러, 쉽고 똑똑하게 하루를 관리하세요<br>
+                      말 한마디로 일정 등록부터 최적 배치까지, AI가 알아서 처리합니다<br>
+                      미루기 방지 알림과 자동 재배치로 시간 낭비 없이 목표를 달성하세요
+                    </p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="images/flim-Photoroom.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- Chat Interface Section -->
+  <section class="chat_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          AI 일정 <span>관리</span>
+        </h2>
+      </div>
+      <div class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot-message">
+            안녕하세요! 저는 MakeItCount AI 일정 관리자입니다. 
+            자연어로 일정을 입력해주시면 자동으로 정리해드립니다.
+            예시: "내일 오후 2시에 친구와 카페에서 만나기로 했어"
+          </div>
+        </div>
+        <div class="chat-input">
+          <input type="text" id="userInput" placeholder="일정을 입력해주세요...">
+          <button id="sendButton">전송</button>
+        </div>
+        <div class="calendar-preview" id="calendarPreview">
+          <h4>정리된 일정</h4>
+          <div id="scheduleList"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- service section -->
+
+  <section class="service_section layout_padding">
+    <div class="service_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            주요 <span>기능</span>
+          </h2>
+        </div>
+        <div class="row">
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="images/genim1.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  자연어 일정 입력
+                </h5>
+                <p>
+                  복잡한 일정 입력 대신, 말하듯 쓰면 AI가 캘린더에 딱 맞게 배치
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="images/genim2.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  AI 기반 최적 스케줄 추천
+                </h5>
+                <p>
+                  사용자의 빈 시간·집중 패턴·우선순위를 한 번에 분석. 가장 효율적인 타임블록을 자동으로 제안
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="images/genim3.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  미루기 방지 알림 & 자동 재배치
+                </h5>
+                <p>
+                  일정을 미루면 푸시 알림 <br>푸시 알림 후에도 미루면 재배치·경고 메시지 발송
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+  <!-- end service section -->
+
+
+  <!-- about section -->
+
+  <section class="about_section layout_padding">
+    <div class="service_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            왜 <span>MakeItCount<sup>AI</sup></span>인가?
+          </h2>
+        </div>
+        <div class="row">
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="images/goog.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  구글 캘린더 연동
+                </h5>
+                <p>
+                  클릭 한 번으로 구글 캘린더와 실시간 자동 동기화
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="images/sche.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  강의 시간표 가져오기
+                </h5>
+                <p>
+                  클릭 한 번으로 학교 시간표 불러오기
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="images/reba.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  실시간 우선순위 리밸런싱
+                </h5>
+                <p>
+                  예기치 않은 일정 변경이 생기면 즉시 남은 일정 전체를 재분석·재배치해 혼란 없이 스케줄을 유지
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+  <!-- FAQ section -->
+
+  <section class="faq_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          FAQ
+        </h2>
+      </div>
+      <div class="faq_container">
+        <div class="box">
+          <div class="detail-box">
+            <h5>
+              Q1. AI 추천 스케줄링은 어떻게 동작하나요?
+            </h5>
+            <p>
+              사용자가 입력한 마감 기한, 예상 소요 시간, 우선 순위 등의 데이터를 종합 분석해 최적의 타임블록을 배치합니다.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="detail-box">
+            <h5>
+              Q2. 모든 학교 시간표를 가져올 수 있나요?
+            </h5>
+            <p>
+              개발 초기에는 연세대학교(서울) 시간표만 연동할 예정입니다.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="detail-box">
+            <h5>
+              Q3. 다중 디바이스 간 실시간 동기화가 되나요?
+            </h5>
+            <p>
+              네. 웹·모바일·데스크탑 앱 버전 모두 동일 계정으로 로그인 시 1분 이내에 실시간 동기화됩니다.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="detail-box">
+            <h5>
+              Q4. 언제 정식 출시되나요?
+            </h5>
+            <p>
+              2025년 6월 초를 목표로 하고 있습니다. 사전등록하시면 출시 알림을 가장 먼저 받아보실 수 있습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end faq section -->
+
+  <!-- info section -->
+
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 info_col">
+          <div class="info_contact">
+            <h4>
+              Address
+            </h4>
+            <div class="contact_link_box">
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call +82 01072663324
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  pkbnic@yonsei.ac.kr
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 info_col">
+      </div>
+    </div>
+  </section>
+
+  <!-- end info section -->
+
+<div style="padding : 15px 15px;"></div>
+
+  <section>
+    <center>
+      <p>사전예약을 하시려면 이메일을 남겨주세요.</p>
+      <input id="submit-email" type="email" placeholder="알림을 받으실 이메일" /> <br><br>
+      <p>문의사항이나 피드백이 있으면 남겨주세요.</p>
+      <textarea id="submit-advice" name="Text1" cols="40" rows="5" placeholder="문의사항, 피드백"></textarea><br>
+      <button style="width:350px;" id="submit">지금 제출! </button>
+        </center>
+  </section>
+  <div style="padding : 15px 15px;"></div>
+
+
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+  <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/dinoqqq/simple-popup@master/dist/jquery.simple-popup.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/gh/dinoqqq/simple-popup@master/dist/jquery.simple-popup.min.css" rel="stylesheet" type="text/css" />
+
+  <div id="popup" style="display:none;">
+    <h1>감사합니다. </h1>
+    <p>출시되면 이메일을 드리겠습니다. </p>
+      </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@google/generative-ai"></script>
+  <script>
+    // Gemini API 설정
+    const genAI = new window.google.generativeAI.GenerativeModel({
+      model: "gemini-pro",
+      apiKey: window.GEMINI_API_KEY
+    });
+
+    // 채팅 관련 함수들
+    function addMessage(message, isUser = false) {
+      const chatMessages = document.getElementById('chatMessages');
+      const messageDiv = document.createElement('div');
+      messageDiv.className = `message ${isUser ? 'user-message' : 'bot-message'}`;
+      messageDiv.textContent = message;
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function updateScheduleList(schedule) {
+      const scheduleList = document.getElementById('scheduleList');
+      const scheduleItem = document.createElement('div');
+      scheduleItem.className = 'schedule-item';
+      scheduleItem.innerHTML = `
+        <p><strong>${schedule.title}</strong></p>
+        <p>시간: ${schedule.time}</p>
+        <p>장소: ${schedule.location || '미정'}</p>
+      `;
+      scheduleList.appendChild(scheduleItem);
+    }
+
+    async function processUserInput(input) {
+      try {
+        const prompt = `다음 일정을 분석해서 JSON 형식으로 변환해주세요:
+        ${input}
+        
+        다음 형식으로 응답해주세요:
+        {
+          "title": "일정 제목",
+          "time": "YYYY-MM-DD HH:mm",
+          "location": "장소",
+          "description": "설명"
+        }`;
+
+        const result = await genAI.generateContent(prompt);
+        const response = await result.response;
+        const schedule = JSON.parse(response.text());
+        
+        updateScheduleList(schedule);
+        addMessage(`일정이 성공적으로 등록되었습니다!\n제목: ${schedule.title}\n시간: ${schedule.time}`);
+      } catch (error) {
+        console.error('Error:', error);
+        addMessage('죄송합니다. 일정을 처리하는 중에 오류가 발생했습니다.');
+      }
+    }
+
+    // 이벤트 리스너 설정
+    document.getElementById('sendButton').addEventListener('click', () => {
+      const input = document.getElementById('userInput');
+      const message = input.value.trim();
+      
+      if (message) {
+        addMessage(message, true);
+        processUserInput(message);
+        input.value = '';
+      }
+    });
+
+    document.getElementById('userInput').addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        document.getElementById('sendButton').click();
+      }
+    });
+  </script>
+
+</body>
+
+    <script type="application/javascript">
+					var ip = "null";
+					function getIP(json) {
+					    console.log(json);
+					    try {
+							ip = json.ip;
+					    } catch (e) {
+							ip = 'unknown';
+					    }
+					    return;
+					}
+					</script>
+					<script type="application/javascript" src="https://jsonip.com?format=jsonp&callback=getIP"></script>
+
+  <script>
+// Sam pading value to start with 0. eg: 01, 02, .. 09, 10, ..
+				function padValue(value) {
+					return (value < 10) ? "0" + value : value;
+				}
+
+				function getTimeStamp() {
+					const date = new Date();
+
+					const year = date.getFullYear();
+					const month = date.getMonth() + 1;
+					const day = date.getDate();
+					const hours = date.getHours();
+					const minutes = date.getMinutes();
+					const seconds = date.getSeconds();
+
+					const formattedDate = `${padValue(year)}-${padValue(month)}-${padValue(day)} ${padValue(hours)}:${padValue(minutes)}:${padValue(seconds)}`;
+
+					return formattedDate;
+				}
+
+  </script>
+
+  <script>
+    // 쿠키에서 값을 가져오는 함수
+    function getCookieValue(name) {
+					const value = "; " + document.cookie;
+					const parts = value.split("; " + name + "=");
+					if (parts.length === 2) {
+						return parts.pop().split(";").shift();
+					}
+				}
+
+				// 쿠키에 값을 저장하는 함수
+				function setCookieValue(name, value, days) {
+					let expires = "";
+					if (days) {
+						const date = new Date();
+						date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+						expires = "; expires=" + date.toUTCString();
+					}
+					document.cookie = name + "=" + (value || "") + expires + "; path=/";
+				}
+
+				function getUVfromCookie() {
+					// 6자리 임의의 문자열 생성
+					const hash = Math.random().toString(36).substring(2, 8).toUpperCase();
+					// 쿠키에서 기존 해시 값을 가져옴
+					const existingHash = getCookieValue("user");
+					// 기존 해시 값이 없으면, 새로운 해시 값을 쿠키에 저장
+					if (!existingHash) {
+						setCookieValue("user", hash, 180); // 쿠키 만료일은 6개월 
+						return hash;
+					} else {
+						// 기존 해시 값이 있으면, 기존 값을 반환
+						return existingHash;
+					}
+				}
+  </script>
+  
+  <script>
+    var queryString = location.search;
+				const urlParams = new URLSearchParams(queryString);
+				const utm = urlParams.get("utm")
+
+    var mobile = 'desktop';
+				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+					// true for mobile device
+					mobile = 'mobile';
+				}
+
+    /* data를 만들 땐 모든 field가 들어 있어야 함 */
+    var data = JSON.stringify(
+					    {"id":getUVfromCookie(),
+							"landingUrl":window.location.href, 
+							"ip":ip, 
+							"referer":document.referrer,
+							"time_stamp":getTimeStamp(), 
+							"utm":utm,
+							"device":mobile}
+							);
+
+				$(document).ready(function () {
+
+					addrScript = 'https://script.google.com/macros/s/AKfycbwFqGvrSN-_wVBGnFx8tDX8AvTXV1kC58oSqbUK1seZDXs2uoV8Ha3mhGENIxJtSsik/exec';
+
+					axios.get(addrScript+'?action=insert&table=visitors&data='+data)
+				    .then(response => {
+							console.log(JSON.stringify(response));
+						})
+						.catch(error => {
+							if (error.response) {
+								// 서버가 2xx 범위를 벗어난 상태 코드로 응답한 경우
+								console.log(error.response.data);
+								console.log(error.response.status);
+								console.log(error.response.headers);
+							} else if (error.request) {
+								// 요청이 전송되었지만 응답을 받지 못한 경우
+								console.log(error.request);
+							} else {
+								// 요청 설정 중에 오류가 발생한 경우
+								console.log('Error', error.message);
+							}
+							console.log(error.config);
+						});
+
+            $("#submit").on("click", function () {
+            $.busyLoadFull("show");
+					const email = $("#submit-email").val();
+					const advice = $("#submit-advice").val();
+		    
+					function validateEmail(email) {
+					    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+					    return re.test(email);
+					}
+		    
+					if (email == '' || !validateEmail(email)) {
+					    alert("이메일이 유효하지 않아 알림을 드릴 수가 없습니다. ");
+					    return;
+					}
+		    
+					var finalData = JSON.stringify({
+					    "id": getUVfromCookie(),
+					    "email": email,
+					    "advice": advice
+					})
+		    
+					axios.get( addrScript +'?action=insert&table=tab_final&data=' + finalData)
+					    .then(response => {
+						console.log(response.data.data);
+            $.busyLoadFull("hide");
+            $.fn.simplePopup({ type: "html", htmlSelector: "#popup" });
+						//alert(JSON.stringify(response));
+						$('#submit-email').val('');
+						$('#submit-advice').val('');
+					    })
+				    });
+				    });
+  </script>
+
+</html>
