@@ -716,79 +716,193 @@
       let currentDate = new Date();
       let selectedDate = null;
       let todos = [
-        { title: '운동 (러닝)', dueDate: '2025-06-25', priority: 'medium', duration: '60', description: '공원에서' },
-        { title: '프로젝트 보고서 작성', dueDate: '2025-06-20', priority: 'very-high', duration: '120', description: '1차 초안 완성' },
-        { title: '장보기', dueDate: '2025-06-18', priority: 'low', duration: '30', description: '우유, 빵, 계란' },
-        { title: '온라인 강의 수강 (수학)', dueDate: '2025-06-30', priority: 'high', duration: '90', description: '미적분 챕터 3' },
-        { title: '친구와 저녁 식사', dueDate: '2025-06-22', priority: 'medium', duration: '100', description: '이탈리안 레스토랑' }
-      ]; // 할 일 목록을 저장할 배열
+        { title: '알고리즘 문제 풀이', dueDate: '2025-06-30', priority: 'very-high', duration: '180', description: '백준 10문제 풀이' },
+        { title: '운영체제 프로젝트 구현', dueDate: '2025-06-25', priority: 'very-high', duration: '240', description: '메모리 관리 모듈 완성' },
+        { title: '데이터베이스 스터디', dueDate: '2025-07-01', priority: 'high', duration: '120', description: 'SQLD 자격증 대비' },
+        { title: '캡스톤 디자인 보고서 작성', dueDate: '2025-07-03', priority: 'high', duration: '300', description: '최종 보고서 초안 마무리' },
+        { title: '인공지능 논문 읽기', dueDate: '2025-06-20', priority: 'medium', duration: '90', description: '최신 AI 동향 파악' },
+        { title: '네트워크 보안 강의 복습', dueDate: '2025-06-15', priority: 'medium', duration: '60', description: 'OSI 7계층 다시 보기' },
+        { title: '취업 박람회 참여', dueDate: '2025-06-10', priority: 'low', duration: '120', description: 'IT 기업 부스 방문' },
+        { title: '체육 수업 (코딩)', dueDate: '2025-06-05', priority: 'low', duration: '60', description: '클라이밍 동아리 활동' },
+        { title: '도서관 책 반납', dueDate: '2025-06-07', priority: 'very-low', duration: '30', description: '빌렸던 전공 서적' },
+        { title: '팀 빌딩 회식', dueDate: '2025-06-12', priority: 'very-low', duration: '180', description: '새로운 팀원 환영회' }
+      ];
 
       let events = {
-        '2024-03-18': [
-          { title: '중간고사 공부', startTime: '14:00', endTime: '16:00', description: '수학 공부', type: 'user' },
-          { title: '운동', startTime: '18:00', endTime: '19:00', description: '헬스장', type: 'user' }
+        '2025-06-01': [
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
         ],
-        '2024-03-19': [
-          { title: '프로젝트 미팅', startTime: '10:00', endTime: '12:00', description: '팀 미팅', type: 'user' },
-          { title: '친구 만남', startTime: '19:00', endTime: '21:00', description: '저녁 식사', type: 'user' }
+        '2025-06-02': [
+          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' }
         ],
-        '2024-03-20': [
-          { title: '중간고사', startTime: '13:00', endTime: '15:00', description: '수학 시험', type: 'user' },
-          { title: '과제 제출', startTime: '23:59', endTime: '23:59', description: '프로그래밍 과제', type: 'user' }
+        '2025-06-03': [
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
+        ],
+        '2025-06-04': [
+          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' }
+        ],
+        '2025-06-05': [
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
+        ],
+        '2025-06-06': [
+          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
+          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' }
+        ],
+        '2025-06-07': [
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
+        ],
+        '2025-06-08': [
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
+          { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' }
         ],
         '2025-06-09': [
-          { title: '팀 프로젝트 회의', startTime: '10:00', endTime: '11:00', description: '주간 진행 상황 공유', type: 'user' },
-          { title: '점심 식사', startTime: '12:30', endTime: '13:30', description: '동료들과 식사', type: 'user' },
-          { title: '운동 (헬스)', startTime: '18:00', endTime: '19:30', description: '하체 운동', type: 'user' }
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
+          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
         ],
         '2025-06-10': [
-          { title: '데이터 분석 스터디', startTime: '09:00', endTime: '12:00', description: '파이썬 데이터 시각화', type: 'user' },
-          { title: '은행 방문', startTime: '14:00', endTime: '15:00', description: '계좌 개설', type: 'user' }
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
         ],
         '2025-06-11': [
-          { title: '온라인 강의 수강', startTime: '10:00', endTime: '13:00', description: '머신러닝 기초', type: 'user' },
-          { title: '영어 회화 스터디', startTime: '19:00', endTime: '20:30', description: '원어민 선생님과', type: 'user' }
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' },
+          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
         ],
         '2025-06-12': [
-          { title: '보고서 작성', startTime: '09:00', endTime: '17:00', description: '주간 업무 보고서', type: 'user' }
+          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
         ],
         '2025-06-13': [
-          { title: '개발팀 주간 회의', startTime: '10:00', endTime: '11:30', description: '스프린트 계획', type: 'user' },
-          { title: '개인 프로젝트 코딩', startTime: '14:00', endTime: '18:00', description: '새로운 기능 구현', type: 'user' }
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
         ],
         '2025-06-14': [
-          { title: '주말 여행 계획', startTime: '11:00', endTime: '12:00', description: '강릉 여행 준비', type: 'user' },
-          { title: '친구 결혼식 참석', startTime: '15:00', endTime: '18:00', description: '강남 웨딩홀', type: 'user' }
+          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
+          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' }
         ],
         '2025-06-15': [
-          { title: '가족 모임', startTime: '13:00', endTime: '17:00', description: '부모님 댁 방문', type: 'user' }
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
         ],
         '2025-06-16': [
-          { title: '운동 (요가)', startTime: '07:00', endTime: '08:00', description: '아침 요가 수업', type: 'user' },
-          { title: '자기계발 독서', startTime: '20:00', endTime: '22:00', description: '트렌드 코리아 2025', type: 'user' }
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
+          { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' }
         ],
         '2025-06-17': [
-          { title: '재무 계획 상담', startTime: '10:00', endTime: '11:00', description: '재정 설계사 미팅', type: 'user' },
-          { title: '병원 진료', startTime: '14:00', endTime: '15:00', description: '정기 검진', type: 'user' }
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
+          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
         ],
         '2025-06-18': [
-          { title: '새로운 기술 연구', startTime: '09:00', endTime: '12:00', description: 'Generative AI 동향 분석', type: 'user' },
-          { title: '독서 모임', startTime: '19:00', endTime: '21:00', description: '온라인 독서토론', type: 'user' }
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
         ],
         '2025-06-19': [
-          { title: '집안일 (청소)', startTime: '10:00', endTime: '11:00', description: '대청소', type: 'user' }
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' },
+          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
         ],
         '2025-06-20': [
-          { title: '네트워크 행사 참석', startTime: '17:00', endTime: '20:00', description: '산업 컨퍼런스', type: 'user' }
+          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
         ],
         '2025-06-21': [
-          { title: '여행 계획 최종 점검', startTime: '10:00', endTime: '11:00', description: '교통편, 숙소 예약 확인', type: 'user' }
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
         ],
         '2025-06-22': [
-          { title: '여가 활동 (영화 감상)', startTime: '14:00', endTime: '16:00', description: '최신 개봉 영화', type: 'user' }
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
+          { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' }
         ],
         '2025-06-23': [
-          { title: '주간 업무 계획', startTime: '09:00', endTime: '10:00', description: '다음 주 업무 정리', type: 'user' }
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
+          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
+        ],
+        '2025-06-24': [
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
+        ],
+        '2025-06-25': [
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' },
+          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
+          { title: '과제 마감', startTime: '23:00', endTime: '23:59', description: '과제 마감 상세 내용', type: 'user' }
+        ],
+        '2025-06-26': [
+          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
+        ],
+        '2025-06-27': [
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
+        ],
+        '2025-06-28': [
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
+          { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' }
+        ],
+        '2025-06-29': [
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
+          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
+        ],
+        '2025-06-30': [
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
+        ],
+        '2025-07-01': [
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' },
+          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
+        ],
+        '2025-07-02': [
+          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
+          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
+        ],
+        '2025-07-03': [
+          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
+          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
+          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
         ]
       };
 
@@ -1060,6 +1174,9 @@
 
       // 초기 할 일 목록 렌더링
       renderTodoList();
+
+      // 페이지 로드 시 스케줄 리밸런싱 자동 호출
+      rebalanceSchedule();
 
       // 스케줄 리밸런싱 함수
       function rebalanceSchedule() {
