@@ -1175,6 +1175,9 @@
       // 초기 할 일 목록 렌더링
       renderTodoList();
 
+      // 페이지 로드 시 스케줄 리밸런싱 자동 호출
+      rebalanceSchedule();
+
       // 스케줄 리밸런싱 함수
       function rebalanceSchedule() {
         console.log("스케줄 리밸런싱이 호출되었습니다.");
