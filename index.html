@@ -555,6 +555,28 @@
     <p>출시되면 이메일을 드리겠습니다. </p>
       </div>
 
+  <!-- 리밸런싱 완료 모달 -->
+  <div class="modal fade" id="rebalanceCompleteModal" tabindex="-1" role="dialog" aria-labelledby="rebalanceCompleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rebalanceCompleteModalLabel">리밸런싱 완료</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="rebalanceChanges">
+            <!-- 변경사항이 여기에 표시됩니다 -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 
     <script type="application/javascript">
@@ -846,63 +868,19 @@
           { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' }
         ],
         '2025-06-23': [
-          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
-          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
-          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
-          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
+          { title: '데이터베이스 수업', startTime: '09:00', endTime: '11:00', description: '데이터베이스 설계 및 구현', type: 'user' },
+          { title: '운영체제 과제', startTime: '14:00', endTime: '16:00', description: '프로세스 스케줄링 구현', type: 'user' },
+          { title: '네트워크 스터디', startTime: '19:00', endTime: '21:00', description: 'TCP/IP 프로토콜 학습', type: 'user' }
         ],
         '2025-06-24': [
-          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
-          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
-          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
+          { title: '컴퓨터 구조 수업', startTime: '10:00', endTime: '12:00', description: 'CPU 파이프라이닝', type: 'user' },
+          { title: '인공지능 프로젝트', startTime: '13:00', endTime: '15:00', description: '딥러닝 모델 구현', type: 'user' },
+          { title: '코딩 테스트 연습', startTime: '16:00', endTime: '18:00', description: '백준 문제 풀이', type: 'user' }
         ],
         '2025-06-25': [
-          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
-          { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' },
-          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
-          { title: '과제 마감', startTime: '23:00', endTime: '23:59', description: '과제 마감 상세 내용', type: 'user' }
-        ],
-        '2025-06-26': [
-          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
-          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
-          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
-        ],
-        '2025-06-27': [
-          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
-          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' },
-          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
-        ],
-        '2025-06-28': [
-          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
-          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
-          { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' }
-        ],
-        '2025-06-29': [
-          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
-          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
-          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
-          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
-        ],
-        '2025-06-30': [
-          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
-          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
-          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
-        ],
-        '2025-07-01': [
-          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
-          { title: '온라인 강의 수강', startTime: '11:00', endTime: '13:00', description: '온라인 강의 수강 상세 내용', type: 'user' },
-          { title: '개인 프로젝트 코딩', startTime: '16:00', endTime: '18:00', description: '개인 프로젝트 코딩 상세 내용', type: 'user' },
-          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
-        ],
-        '2025-07-02': [
-          { title: '전공 수업 A', startTime: '10:00', endTime: '12:00', description: '전공 수업 A 상세 내용', type: 'user' },
-          { title: '운동', startTime: '18:00', endTime: '19:00', description: '운동 상세 내용', type: 'user' },
-          { title: '팀 회의', startTime: '14:00', endTime: '15:00', description: '팀 회의 상세 내용', type: 'user' }
-        ],
-        '2025-07-03': [
-          { title: '알고리즘 스터디', startTime: '09:00', endTime: '11:00', description: '알고리즘 스터디 상세 내용', type: 'user' },
-          { title: '전공 수업 B', startTime: '13:00', endTime: '15:00', description: '전공 수업 B 상세 내용', type: 'user' },
-          { title: '도서관 자습', startTime: '19:00', endTime: '21:00', description: '도서관 자습 상세 내용', type: 'user' }
+          { title: '소프트웨어 공학 수업', startTime: '09:00', endTime: '11:00', description: '디자인 패턴', type: 'user' },
+          { title: '웹 개발 스터디', startTime: '14:00', endTime: '16:00', description: 'React.js 학습', type: 'user' },
+          { title: '운동', startTime: '18:00', endTime: '19:00', description: '헬스장', type: 'user' }
         ]
       };
 
@@ -1012,11 +990,13 @@
           
           calendarHTML += `<div class="calendar-day ${todayClass} ${selectedClass}" data-date="${currentDateStr}">
             <div class="day-number">${date}</div>
+            <div class="calendar-events-container">
             ${dayEvents.map(event => `
               <div class="event">
                 ${event.title}
               </div>
             `).join('')}
+            </div>
           </div>`;
         }
         
@@ -1175,15 +1155,169 @@
       // 초기 할 일 목록 렌더링
       renderTodoList();
 
-      // 페이지 로드 시 스케줄 리밸런싱 자동 호출
-      rebalanceSchedule();
+      // 페이지 로드 시 스케줄 리밸런싱 실행 (모달 없이)
+      initialSchedule();
+
+      // 초기 스케줄링 함수
+      function initialSchedule() {
+        // 모든 할 일의 스케줄링 상태 초기화
+        todos.forEach(todo => {
+          todo.scheduled = false;
+          todo.scheduledDate = null;
+          todo.scheduledStartTime = null;
+          todo.scheduledEndTime = null;
+        });
+
+        // 이전에 AI가 스케줄링했던 모든 일정을 제거
+        for (const date in events) {
+          events[date] = events[date].filter(event => event.type !== 'ai');
+          if (events[date].length === 0) {
+            delete events[date];
+          }
+        }
+
+        // todos를 우선순위 및 마감 기한으로 정렬
+        todos.sort((a, b) => {
+          const priorityOrder = { 'very-high': 5, 'high': 4, 'medium': 3, 'low': 2, 'very-low': 1 };
+          if (priorityOrder[a.priority] !== priorityOrder[b.priority]) {
+            return priorityOrder[b.priority] - priorityOrder[a.priority];
+          }
+          return new Date(a.dueDate) - new Date(b.dueDate);
+        });
+
+        // 자유 시간 슬롯 계산 및 todos 할당
+        const today = new Date();
+        const planningHorizonDays = 60;
+        const REST_TIME = 20;
+        const MAX_EVENTS_PER_DAY = 5;
+
+        for (let i = 0; i < planningHorizonDays; i++) {
+          const currentDay = new Date(today);
+          currentDay.setDate(today.getDate() + i);
+          const currentDayStr = `${currentDay.getFullYear()}-${String(currentDay.getMonth() + 1).padStart(2, '0')}-${String(currentDay.getDate()).padStart(2, '0')}`;
+
+          const userEventsToday = (events[currentDayStr] || []).filter(event => event.type === 'user');
+          
+          if (userEventsToday.length >= MAX_EVENTS_PER_DAY) continue;
+
+          let freeSlots = [{ start: '08:00', end: '24:00' }];
+
+          userEventsToday.forEach(event => {
+            const eventStart = event.startTime;
+            const eventEnd = event.endTime;
+
+            let newFreeSlots = [];
+            freeSlots.forEach(slot => {
+              const slotStart = slot.start;
+              const slotEnd = slot.end;
+
+              if (eventStart >= slotEnd || eventEnd <= slotStart) {
+                newFreeSlots.push(slot);
+              } else {
+                if (slotStart < eventStart) {
+                  const restStart = subtractMinutes(eventStart, REST_TIME);
+                  if (slotStart < restStart) {
+                    newFreeSlots.push({ start: slotStart, end: restStart });
+                  }
+                }
+                if (slotEnd > eventEnd) {
+                  const restEnd = addMinutes(eventEnd, REST_TIME);
+                  if (restEnd < slotEnd) {
+                    newFreeSlots.push({ start: restEnd, end: slotEnd });
+                  }
+                }
+              }
+            });
+            freeSlots = newFreeSlots.sort((a, b) => a.start.localeCompare(b.start));
+          });
+
+          if (currentDayStr === `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`) {
+            const currentHour = String(today.getHours()).padStart(2, '0');
+            const currentMinute = String(today.getMinutes()).padStart(2, '0');
+            const currentTime = `${currentHour}:${currentMinute}`;
+            freeSlots = freeSlots.filter(slot => slot.end > currentTime);
+            freeSlots = freeSlots.map(slot => {
+              if (slot.start < currentTime) {
+                return { start: currentTime, end: slot.end };
+              } else {
+                return slot;
+              }
+            });
+          }
+
+          for (let j = 0; j < todos.length; j++) {
+            const todo = todos[j];
+            if (todo.scheduled) continue;
+
+            const todoDuration = parseInt(todo.duration);
+            const todoDueDate = new Date(todo.dueDate);
+
+            if (currentDay > todoDueDate) continue;
+
+            const aiEventsToday = (events[currentDayStr] || []).filter(event => event.type === 'ai').length;
+            if (aiEventsToday + userEventsToday.length >= MAX_EVENTS_PER_DAY) continue;
+
+            for (let k = 0; k < freeSlots.length; k++) {
+              const slot = freeSlots[k];
+              const [slotStartHour, slotStartMinute] = slot.start.split(':').map(Number);
+              const [slotEndHour, slotEndMinute] = slot.end.split(':').map(Number);
+
+              const slotStartTime = slotStartHour * 60 + slotStartMinute;
+              const slotEndTime = slotEndHour * 60 + slotEndMinute;
+              const slotDuration = slotEndTime - slotStartTime;
+
+              const availableDuration = slotDuration - (REST_TIME * 2);
+
+              if (availableDuration >= todoDuration) {
+                const scheduledStartTime = addMinutes(slot.start, REST_TIME);
+                const scheduledEndTime = addMinutes(scheduledStartTime, todoDuration);
+
+                const scheduledEvent = {
+                  title: todo.title,
+                  startTime: scheduledStartTime,
+                  endTime: scheduledEndTime,
+                  description: todo.description,
+                  type: 'ai',
+                  originalTodoIndex: j
+                };
+
+                if (!events[currentDayStr]) {
+                  events[currentDayStr] = [];
+                }
+                events[currentDayStr].push(scheduledEvent);
+                
+                todo.scheduled = true;
+                todo.scheduledDate = currentDayStr;
+                todo.scheduledStartTime = scheduledStartTime;
+                todo.scheduledEndTime = scheduledEndTime;
+
+                const remainingSlotStart = addMinutes(scheduledEndTime, REST_TIME);
+                freeSlots.splice(k, 1, { start: remainingSlotStart, end: slot.end });
+                
+                break;
+              }
+            }
+          }
+        }
+
+        renderCalendar();
+        renderTodoList();
+      }
 
       // 스케줄 리밸런싱 함수
       function rebalanceSchedule() {
         console.log("스케줄 리밸런싱이 호출되었습니다.");
 
+        // 변경사항을 추적하기 위한 배열
+        const changes = [];
+
         // 모든 할 일의 스케줄링 상태 초기화 (재배치를 위해)
         todos.forEach(todo => {
+          // 이전에 스케줄링되었던 정보를 임시 저장
+          todo._previousScheduledDate = todo.scheduledDate;
+          todo._previousScheduledStartTime = todo.scheduledStartTime;
+          todo._previousScheduledEndTime = todo.scheduledEndTime;
+
           todo.scheduled = false;
           todo.scheduledDate = null;
           todo.scheduledStartTime = null;
@@ -1202,27 +1336,28 @@
         todos.sort((a, b) => {
           const priorityOrder = { 'very-high': 5, 'high': 4, 'medium': 3, 'low': 2, 'very-low': 1 };
           if (priorityOrder[a.priority] !== priorityOrder[b.priority]) {
-            return priorityOrder[b.priority] - priorityOrder[a.priority]; // 높은 우선순위가 먼저 오도록
+            return priorityOrder[b.priority] - priorityOrder[a.priority];
           }
-          return new Date(a.dueDate) - new Date(b.dueDate); // 마감 기한이 빠른 것이 먼저 오도록
+          return new Date(a.dueDate) - new Date(b.dueDate);
         });
 
         // 3. 자유 시간 슬롯 계산 및 todos 할당
         const today = new Date();
-        const planningHorizonDays = 60; // 예를 들어, 앞으로 60일 동안의 일정을 계획
+        const planningHorizonDays = 60;
+        const REST_TIME = 20;
+        const MAX_EVENTS_PER_DAY = 5;
 
         for (let i = 0; i < planningHorizonDays; i++) {
           const currentDay = new Date(today);
           currentDay.setDate(today.getDate() + i);
           const currentDayStr = `${currentDay.getFullYear()}-${String(currentDay.getMonth() + 1).padStart(2, '0')}-${String(currentDay.getDate()).padStart(2, '0')}`;
 
-          // 해당 날짜의 사용자 생성 이벤트를 가져옴
           const userEventsToday = (events[currentDayStr] || []).filter(event => event.type === 'user');
+          
+          if (userEventsToday.length >= MAX_EVENTS_PER_DAY) continue;
 
-          // 하루 전체를 자유 시간으로 초기화 (08:00 ~ 24:00)
           let freeSlots = [{ start: '08:00', end: '24:00' }];
 
-          // 사용자 생성 이벤트를 고려하여 자유 시간 슬롯 조정
           userEventsToday.forEach(event => {
             const eventStart = event.startTime;
             const eventEnd = event.endTime;
@@ -1236,41 +1371,47 @@
                 newFreeSlots.push(slot);
               } else {
                 if (slotStart < eventStart) {
-                  newFreeSlots.push({ start: slotStart, end: eventStart });
+                  const restStart = subtractMinutes(eventStart, REST_TIME);
+                  if (slotStart < restStart) {
+                    newFreeSlots.push({ start: slotStart, end: restStart });
+                  }
                 }
                 if (slotEnd > eventEnd) {
-                  newFreeSlots.push({ start: eventEnd, end: slotEnd });
+                  const restEnd = addMinutes(eventEnd, REST_TIME);
+                  if (restEnd < slotEnd) {
+                    newFreeSlots.push({ start: restEnd, end: slotEnd });
+                  }
                 }
               }
             });
             freeSlots = newFreeSlots.sort((a, b) => a.start.localeCompare(b.start));
           });
 
-          // 현재 날짜가 오늘인 경우, 현재 시간 이전의 슬롯은 무시
           if (currentDayStr === `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`) {
             const currentHour = String(today.getHours()).padStart(2, '0');
             const currentMinute = String(today.getMinutes()).padStart(2, '0');
             const currentTime = `${currentHour}:${currentMinute}`;
             freeSlots = freeSlots.filter(slot => slot.end > currentTime);
             freeSlots = freeSlots.map(slot => {
-                if (slot.start < currentTime) {
-                    return { start: currentTime, end: slot.end };
-                } else {
-                    return slot;
-                }
+              if (slot.start < currentTime) {
+                return { start: currentTime, end: slot.end };
+              } else {
+                return slot;
+              }
             });
           }
-          
-          // 유효한 자유 시간 슬롯에 할 일 할당 시도
+
           for (let j = 0; j < todos.length; j++) {
             const todo = todos[j];
-            if (todo.scheduled) continue; // 이미 스케줄링된 할 일은 건너뛰기
+            if (todo.scheduled) continue;
 
-            const todoDuration = parseInt(todo.duration); // 할 일 소요 시간 (분)
-            const todoDueDate = new Date(todo.dueDate); // 할 일 마감 기한
+            const todoDuration = parseInt(todo.duration);
+            const todoDueDate = new Date(todo.dueDate);
 
-            // 마감 기한이 지난 할 일은 스케줄링하지 않음
             if (currentDay > todoDueDate) continue;
+
+            const aiEventsToday = (events[currentDayStr] || []).filter(event => event.type === 'ai').length;
+            if (aiEventsToday + userEventsToday.length >= MAX_EVENTS_PER_DAY) continue;
 
             for (let k = 0; k < freeSlots.length; k++) {
               const slot = freeSlots[k];
@@ -1279,20 +1420,21 @@
 
               const slotStartTime = slotStartHour * 60 + slotStartMinute;
               const slotEndTime = slotEndHour * 60 + slotEndMinute;
-              const slotDuration = slotEndTime - slotStartTime; // 슬롯의 총 시간 (분)
+              const slotDuration = slotEndTime - slotStartTime;
 
-              if (slotDuration >= todoDuration) {
-                // 할 일을 이 슬롯에 스케줄링
-                const scheduledStartTime = slot.start;
-                const scheduledEndTime = `${String(Math.floor((slotStartTime + todoDuration) / 60)).padStart(2, '0')}:${String((slotStartTime + todoDuration) % 60).padStart(2, '0')}`;
+              const availableDuration = slotDuration - (REST_TIME * 2);
+
+              if (availableDuration >= todoDuration) {
+                const scheduledStartTime = addMinutes(slot.start, REST_TIME);
+                const scheduledEndTime = addMinutes(scheduledStartTime, todoDuration);
 
                 const scheduledEvent = {
                   title: todo.title,
                   startTime: scheduledStartTime,
                   endTime: scheduledEndTime,
                   description: todo.description,
-                  type: 'ai', // AI 스케줄링된 이벤트
-                  originalTodoIndex: j // 원본 todo의 인덱스 (삭제 시 사용)
+                  type: 'ai',
+                  originalTodoIndex: j
                 };
 
                 if (!events[currentDayStr]) {
@@ -1300,25 +1442,90 @@
                 }
                 events[currentDayStr].push(scheduledEvent);
                 
-                // 스케줄링된 할 일은 todos 배열에서 제거 (또는 scheduled 플래그 설정)
-                todo.scheduled = true; // 이 할 일은 이제 스케줄링됨
-                todo.scheduledDate = currentDayStr; // 스케줄링된 날짜 기록
-                todo.scheduledStartTime = scheduledStartTime; // 스케줄링된 시작 시간 기록
-                todo.scheduledEndTime = scheduledEndTime; // 스케줄링된 종료 시간 기록
+                todo.scheduled = true;
+                todo.scheduledDate = currentDayStr;
+                todo.scheduledStartTime = scheduledStartTime;
+                todo.scheduledEndTime = scheduledEndTime;
 
-                // 해당 슬롯 업데이트 (남은 시간만큼 줄임)
-                const remainingSlotStart = scheduledEndTime;
+                // 변경사항 기록
+                const previousDate = todo._previousScheduledDate;
+                const previousStartTime = todo._previousScheduledStartTime;
+                const previousEndTime = todo._previousScheduledEndTime;
+
+                // 새로 스케줄링되었거나, 기존 스케줄이 변경된 경우에만 changes에 추가
+                if (!previousDate || 
+                    previousDate !== currentDayStr || 
+                    previousStartTime !== scheduledStartTime || 
+                    previousEndTime !== scheduledEndTime) {
+                  changes.push({
+                    title: todo.title,
+                    previousDate: previousDate,
+                    previousStartTime: previousStartTime,
+                    previousEndTime: previousEndTime,
+                    newDate: currentDayStr,
+                    newStartTime: scheduledStartTime,
+                    newEndTime: scheduledEndTime
+                  });
+                }
+
+                const remainingSlotStart = addMinutes(scheduledEndTime, REST_TIME);
                 freeSlots.splice(k, 1, { start: remainingSlotStart, end: slot.end });
                 
-                // 다음 할 일을 위해 내부 루프 중단
-                break; 
+                break;
               }
             }
           }
         }
 
-        renderCalendar(); // 캘린더 다시 그리기
-        renderTodoList(); // 할 일 목록 다시 그리기
+        renderCalendar();
+        renderTodoList();
+
+        // 변경사항 표시
+        let changesHTML = '';
+        if (changes.length === 0) {
+          changesHTML = '<p class="text-center text-muted">변경사항이 없습니다.</p>';
+        } else {
+          changesHTML += '<div class="rebalance-changes">';
+          changes.forEach(change => {
+            if (change.previousDate) {
+              changesHTML += `
+                <div class="change-item">
+                  <strong>${change.title}</strong><br>
+                  ${change.previousDate} ${change.previousStartTime}-${change.previousEndTime} → 
+                  ${change.newDate} ${change.newStartTime}-${change.newEndTime}
+                </div>
+              `;
+            } else {
+              changesHTML += `
+                <div class="change-item">
+                  <strong>${change.title}</strong><br>
+                  새로 스케줄링됨: ${change.newDate} ${change.newStartTime}-${change.newEndTime}
+                </div>
+              `;
+            }
+          });
+          changesHTML += '</div>';
+        }
+        
+        $('#rebalanceChanges').html(changesHTML);
+        $('#rebalanceCompleteModal').modal('show');
+      }
+
+      // 시간 계산을 위한 유틸리티 함수들
+      function addMinutes(timeStr, minutes) {
+        const [hours, mins] = timeStr.split(':').map(Number);
+        const totalMinutes = hours * 60 + mins + minutes;
+        const newHours = Math.floor(totalMinutes / 60);
+        const newMins = totalMinutes % 60;
+        return `${String(newHours).padStart(2, '0')}:${String(newMins).padStart(2, '0')}`;
+      }
+
+      function subtractMinutes(timeStr, minutes) {
+        const [hours, mins] = timeStr.split(':').map(Number);
+        const totalMinutes = hours * 60 + mins - minutes;
+        const newHours = Math.floor(totalMinutes / 60);
+        const newMins = totalMinutes % 60;
+        return `${String(newHours).padStart(2, '0')}:${String(newMins).padStart(2, '0')}`;
       }
 
       // 일정 수정 버튼 클릭
